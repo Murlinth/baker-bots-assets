@@ -1,0 +1,155 @@
+BAKER BOTS — ASSET GUIDE FOR CLAUDE
+========================================
+Game: "Baker Bots" — a multiplayer card/bot battling web game (Google Apps Script
+web app: Code.gs backend + Index.html frontend). The game currently uses ZERO
+image/audio files (all visuals are emoji + colored boxes, completely silent).
+Your job: wire these hand-drawn assets in so the game is 100% Jacob-drawn art
+plus custom sound.
+
+ASSET HOSTING
+-------------
+All files are hosted in the GitHub repo Murlinth/baker-bots-assets.
+Base URL pattern (replace spaces with %20):
+  https://raw.githubusercontent.com/Murlinth/baker-bots-assets/main/<filename>
+Example:
+  https://raw.githubusercontent.com/Murlinth/baker-bots-assets/main/Title%20Art.png
+
+AUDIO: The WAV files are Jacob's lossless masters. Convert copies to MP3 for
+actual use in the game (small files, universal browser support). Keep the WAVs
+as the archive.
+
+--------------------------------------------------------------------------------
+CARD ART (bot faces — drawn by Jacob, full color)
+--------------------------------------------------------------------------------
+File                                          | Purpose
+Tough Basic Bot.png                           | Card face: Tough tier Basic
+Tough Master Bot.png                          | Card face: Tough tier Master
+Tough Legend Bot.png                          | Card face: Tough tier Legend
+Cheap Basic Bot.png                           | Card face: Cheap tier Basic
+Cheap Master Bot.png                          | Card face: Cheap tier Master
+Cheap Legend Bot.png                          | Card face: Cheap tier Legend
+Fast Basic Bot.png                            | Card face: Fast tier Basic
+Fast Master Bot.png                           | Card face: Fast tier Master
+Fast Legend Bot.png                           | Card face: Fast tier Legend
+Rich Basic Bot.png                            | Card face: Rich tier Basic
+Rich Master Bot.png                           | Card face: Rich tier Master
+Rich Legend Bot.png                           | Card face: Rich tier Legend
+Strong Basic Bot.png                          | Card face: Strong tier Basic
+Strong Master Bot.png                         | Card face: Strong tier Master
+Strong Legend Bot.png                         | Card face: Strong tier Legend
+Scrap Basic Bot.png                           | Scrap-themed bot art (Basic) — CONFIRM WITH JACOB:
+Scrap Master Bot.png                          | Scrap-themed bot art (Master) — is "Scrap" a new 6th
+Scrap Legend Bot.png                          | Scrap-themed bot art (Legend) — bot type, or alternate/destroyed-state art?
+Face-down.png                                 | Face-down card back art
+
+Cards stay SIMPLE RECTANGLES (Jacob's call — no decorative tier frames for now).
+Match each card's art by bot type + tier.
+
+--------------------------------------------------------------------------------
+ICONS — all single-color #8294B0 with TRANSPARENT backgrounds.
+The code recolors them dynamically per screen, so never bake in another color.
+--------------------------------------------------------------------------------
+Resource icons (Your Resources panel, costs):
+  Health.png, Wealth.png, Fruit.png, Pie.png, Scraps.png
+Stat icons (bot cards, Bot Stats rules tab):
+  Speed.png, Strength.png, Salary.png
+Bot type icons (on cards):
+  Tough type icon.png, Cheap type icon.png, Fast type icon.png,
+  Rich type icon.png, Strong type icon.png
+UI icons (replace the current emoji round buttons on player selection):
+  Refresh.png      (was the cloud emoji — refresh game state)
+  How to Play.png  (was the ? emoji — rules popup)
+  View Deck.png    (was the eyes emoji — deck viewer)
+  Exit game.png    (was the door emoji — exit to player select)
+Rules tab icons (the 6 tabs inside How to Play):
+  Goal tab.png, Your Turn tab.png, Actions tab.png,
+  Store tab.png, Combat tab.png, Bot Stats tab.png
+Misc UI:
+  Spinning pie loading spinner.png  (loading indicator)
+  Title Art.png                     (game title logo — auth screen header;
+                                     replaces the current plain-text title)
+
+--------------------------------------------------------------------------------
+BACKGROUNDS
+--------------------------------------------------------------------------------
+background detail 1.png  — a simple PIE (tile A)
+background detail 2.png  — a simple BOT HEAD (tile B)
+Both are #8294B0. Implementation: tile A and tile B alternate in a CHECKERED
+pattern over a solid slightly-lighter background color, the whole pattern TILTED
+slightly right, with a soft continuous pan UP-and-to-the-RIGHT (like the
+background of Mario Bros Wii coin battles). Each screen recolors the tiles via
+code — one drawing, many backgrounds. LOCKED PALETTE:
+  Auth screen:       tiles #8294B0 on background #D8E0F0
+  Setup screens:     tiles #D9A648 on background #F7ECD4
+  Player selection:  tiles #C26D7F on background #F4DCE1
+  Main game:         tiles #A9713D on background #F0DFC2
+
+--------------------------------------------------------------------------------
+POLISH (also single-color #8294B0, transparent — same icon spec)
+--------------------------------------------------------------------------------
+Favicon.png                — browser tab icon
+Scrap pile icon.png        — scrap count display
+Deck icon.png              — deck viewer
+Opponent card header art.png — header art for the "Other Players" section
+
+--------------------------------------------------------------------------------
+SOUND EFFECTS (WAV masters — convert to MP3 for use)
+--------------------------------------------------------------------------------
+UI:
+  Button Tap.wav            — every button click
+  Tab switch.wav            — switching tabs (Hand/Store, rules tabs, deal tabs)
+  Stepper tick (+).wav      — deal-setup "+" stepper
+  Stepper tick (-).wav      — deal-setup "-" stepper
+  Modal open.wav            — popup appears
+  Modal close.wav           — popup closes
+  Error buzz.wav            — invalid action feedback
+  Login success.wav         — host login succeeds
+  Login fail.wav            — host login fails
+Actions:
+  Player select.wav         — tapping a player name on "Who is playing?"
+  Collect salary.wav        — collect salary action
+  Purchase fruit.wav        — buy fruit action
+  Bake pies.wav             — bake pies action
+  Make bot active.wav       — moving a bot to the active slot
+  Discard bot from store.m4a — discard-from-store action (once per turn)
+  Cards dealt.m4a           — cards being dealt
+Turn flow:
+  End turn woosh.wav        — End Turn & Save
+  Your-turn notification.wav — a player's turn begins (phone)
+Combat (ONE sound for everything):
+  Effect.wav — plays for ALL combat moments (attack launch, pie splat hit,
+    damage thud, wealth stolen, bot destroyed, scrap earned). Pair it with
+    on-screen combat text that animates: fade IN 0.5s, HOLD 2s, fade OUT 0.5s.
+
+NOTE: several WAV files share identical file sizes and may be placeholder
+copies of one recording (e.g. eight files at exactly 2,073,646 bytes). Verify
+each file's actual audio before wiring it in, and flag any duplicates to Jacob.
+
+MUSIC: no music tracks are in this folder yet (SFX only). The game needs:
+setup-menu loop, gameplay loop, victory jingle (tense gameplay variant
+optional). Jacob will supply these later — structure the code so music tracks
+can be dropped in.
+
+--------------------------------------------------------------------------------
+WHAT STAYS AS HTML (Jacob's call — do NOT draw these)
+--------------------------------------------------------------------------------
+Text buttons (Start, Confirm, End Turn & Save, etc.) and the text font stay as
+HTML/CSS. Only emoji buttons/icons get replaced with art.
+
+--------------------------------------------------------------------------------
+MULTIPLAYER REWORK (build this too)
+--------------------------------------------------------------------------------
+Rework the game from pass-the-phone hot-seat to Jackbox-style multiplayer:
+- The COMPUTER is the host display by default: shows the lobby, the rankings,
+  and the public game state for everyone in the room to watch.
+- PLAYERS JOIN FROM THEIR PHONES via a short game code or by scanning a QR
+  code shown on the host screen.
+- On a player's phone: when it is YOUR TURN, the phone shows your actions; when
+  it is NOT your turn, the phone shows your hand/resources plus a preview of
+  what's publicly available (store, other players' public info).
+- Host/player hybrid: the host screen has a "Join as player" button so the host
+  can also enter the game as a player on their phone, with a toggle to switch
+  the computer back to the host display whenever host actions are needed
+  (dealing, advancing turns, etc.), then swap back.
+- One game per code, stored as today (single game slot in the Sheet is fine to
+  start); phones poll for state as the app already does.
