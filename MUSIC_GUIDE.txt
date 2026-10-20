@@ -1,0 +1,21 @@
+BAKER BOTS — MUSIC FILES GUIDE
+==============================
+Upload every file in this folder to the GitHub repo (Murlinth/baker-bots-assets),
+same as the other assets. The game loads them from:
+  https://raw.githubusercontent.com/Murlinth/baker-bots-assets/main/<filename>
+
+Files:
+- Jacob Movies Logo.png — Jacob's logo, shown in the new intro sequence.
+- My Theme.mp3 — the 6-second intro theme that plays while the logo shows.
+- Baker Bots Theme 1-Contrabasses.mp3 — theme stem: basses.
+- Baker Bots Theme 1-Violins.mp3 — theme stem: violins.
+- Baker Bots Theme 1-Bass_Guitar.mp3 — theme stem: bass guitar.
+- Baker Bots Theme 1-Violoncellos.mp3 — theme stem: cellos.
+- Baker Bots Theme 1-Drum_Kit.mp3 — theme stem: drums.
+  All 5 stems are exactly the same length (69 seconds) and are meant to play
+  TOGETHER in sync; the game fades stems in/out per game phase (adaptive music).
+- Baker Bots Theme 1.mp3 — the full mix of all stems. Spare/reference only;
+  the game uses the stems, not this file.
+
+The WAV originals stay in Jacob's Drive as masters. These MP3s (192 kbps) are
+the ones the game uses.
